@@ -41,12 +41,9 @@ body {
         Arial,
         sans-serif;
 
-    color: var(--dark-green);
+    color:
+        var(--dark-green);
 
-    /*
-       YOUR PROVIDED IMAGE
-       IS THE PAGE BACKGROUND
-    */
     background-image:
         url("conference-background.jpeg");
 
@@ -79,14 +76,11 @@ a {
     position: relative;
 
     display: flex;
+
     align-items: center;
 
     overflow: hidden;
 
-    /*
-       Very light overlay only.
-       This keeps the background visible.
-    */
     background:
         linear-gradient(
             90deg,
@@ -95,53 +89,6 @@ a {
             rgba(239, 240, 228, 0.03) 75%,
             rgba(239, 240, 228, 0) 100%
         );
-}
-
-
-/* Subtle gold glow */
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 450px;
-    height: 450px;
-
-    left: -250px;
-    top: -250px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(243, 211, 125, 0.14);
-
-    filter: blur(40px);
-
-    pointer-events: none;
-}
-
-
-/* Very light bottom fade */
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 100px;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(239, 240, 228, 0.03)
-        );
-
-    pointer-events: none;
 }
 
 
@@ -155,7 +102,7 @@ a {
     top: 28px;
     left: 7vw;
 
-    z-index: 10;
+    z-index: 20;
 }
 
 .church-logo img {
@@ -165,6 +112,194 @@ a {
     height: auto;
 
     object-fit: contain;
+}
+
+
+/* ==============================
+   LANGUAGE TOGGLE
+   ============================== */
+
+.language-toggle {
+    position: absolute;
+
+    top: 32px;
+    right: 7vw;
+
+    left: auto;
+
+    z-index: 9999;
+}
+
+
+/* Toggle shell */
+
+.language-switch {
+    position: relative;
+
+    width: 132px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 5px;
+
+    margin: 0;
+
+    border:
+        1px solid
+        rgba(83, 105, 87, 0.30);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(
+            239,
+            240,
+            228,
+            0.90
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(37, 52, 43, 0.14);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+}
+
+
+/* EN / FR labels */
+
+.language-option {
+    position: relative;
+
+    z-index: 3;
+
+    width: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.06em;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+/* ==============================
+   MOVING SLIDER
+   ============================== */
+
+.language-slider {
+    position: absolute;
+
+    top: 5px;
+    left: 5px;
+
+    z-index: 2;
+
+    width: 60px;
+    height: 40px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--medium-green);
+
+    box-shadow:
+        0 4px 14px
+        rgba(37, 52, 43, 0.20);
+
+    transform:
+        translateX(0);
+
+    transition:
+        transform 0.35s
+        cubic-bezier(
+            0.4,
+            0,
+            0.2,
+            1
+        ),
+        background-color 0.35s ease;
+}
+
+
+/* ==============================
+   ENGLISH ACTIVE
+   Slider on LEFT
+   ============================== */
+
+.language-en {
+    color:
+        var(--white);
+}
+
+.language-fr {
+    color:
+        var(--medium-green);
+}
+
+
+/* ==============================
+   FRENCH ACTIVE
+   Slider moves RIGHT
+   ============================== */
+
+.language-switch.french-active
+.language-slider {
+    transform:
+        translateX(62px);
+
+    background:
+        var(--gold);
+}
+
+
+.language-switch.french-active
+.language-en {
+    color:
+        var(--medium-green);
+}
+
+
+.language-switch.french-active
+.language-fr {
+    color:
+        var(--dark-green);
 }
 
 
@@ -194,13 +329,20 @@ a {
         0
         22px;
 
-    color: var(--medium-green);
+    color:
+        var(--medium-green);
 
-    font-size: 0.8rem;
+    font-size:
+        0.8rem;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: 0.24em;
+    letter-spacing:
+        0.24em;
+
+    line-height:
+        1.6;
 }
 
 
@@ -210,7 +352,8 @@ a {
         0
         22px;
 
-    max-width: 750px;
+    max-width:
+        750px;
 
     font-family:
         "Montserrat",
@@ -223,18 +366,27 @@ a {
             7.5rem
         );
 
-    line-height: 0.86;
+    line-height:
+        0.86;
 
-    letter-spacing: -0.065em;
+    letter-spacing:
+        -0.065em;
 
-    color: var(--dark-green);
+    color:
+        var(--dark-green);
 }
 
 
-.hero h1 span {
+.hero h1 .conference-word {
+    display: block;
+}
+
+
+.hero h1 .year {
     display: block;
 
-    color: var(--medium-green);
+    color:
+        var(--medium-green);
 }
 
 
@@ -255,23 +407,28 @@ a {
             2rem
         );
 
-    color: var(--medium-green);
+    color:
+        var(--medium-green);
 }
 
 
 .hero-description {
-    max-width: 580px;
+    max-width:
+        580px;
 
     margin:
         0
         0
         34px;
 
-    color: #4f5e54;
+    color:
+        #4f5e54;
 
-    font-size: 1.08rem;
+    font-size:
+        1.08rem;
 
-    line-height: 1.75;
+    line-height:
+        1.75;
 }
 
 
@@ -280,30 +437,39 @@ a {
    ============================== */
 
 .primary-button {
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    gap: 18px;
+    gap:
+        18px;
 
-    min-height: 58px;
+    min-height:
+        58px;
 
     padding:
         0
         28px;
 
-    border-radius: 100px;
+    border-radius:
+        100px;
 
-    color: var(--white);
+    color:
+        var(--white);
 
     background:
         var(--dark-green);
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
     box-shadow:
         0 12px 30px
@@ -332,9 +498,11 @@ a {
 .payment-section {
     position: relative;
 
-    max-width: 1300px;
+    max-width:
+        1300px;
 
-    margin: auto;
+    margin:
+        auto;
 
     padding:
         110px
@@ -344,11 +512,6 @@ a {
         transparent;
 }
 
-
-/*
-   Very light transparent layer.
-   The image still stays visible.
-*/
 
 .payment-section::before {
     content: "";
@@ -374,9 +537,11 @@ a {
    ============================== */
 
 .section-header {
-    max-width: 750px;
+    max-width:
+        750px;
 
-    margin-bottom: 45px;
+    margin-bottom:
+        45px;
 }
 
 
@@ -386,13 +551,17 @@ a {
         0
         14px;
 
-    color: #617b61;
+    color:
+        #617b61;
 
-    font-size: 0.75rem;
+    font-size:
+        0.75rem;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: 0.22em;
+    letter-spacing:
+        0.22em;
 }
 
 
@@ -413,20 +582,26 @@ a {
             4.5rem
         );
 
-    line-height: 1;
+    line-height:
+        1;
 
-    letter-spacing: -0.05em;
+    letter-spacing:
+        -0.05em;
 
-    color: var(--dark-green);
+    color:
+        var(--dark-green);
 }
 
 
 .section-header > p:last-child {
-    max-width: 600px;
+    max-width:
+        600px;
 
-    color: #4f5e54;
+    color:
+        #4f5e54;
 
-    line-height: 1.7;
+    line-height:
+        1.7;
 }
 
 
@@ -435,13 +610,20 @@ a {
    ============================== */
 
 .payment-card {
-    padding: 34px;
+    padding:
+        34px;
 
     border:
         1px solid
-        rgba(170, 197, 168, 0.55);
+        rgba(
+            170,
+            197,
+            168,
+            0.55
+        );
 
-    border-radius: 28px;
+    border-radius:
+        28px;
 
     background:
         rgba(
@@ -463,25 +645,35 @@ a {
 
 
 .payment-header {
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 20px;
+    gap:
+        20px;
 }
 
 
 .interac-icon {
-    flex-shrink: 0;
+    flex-shrink:
+        0;
 
-    width: 82px;
-    height: 82px;
+    width:
+        82px;
 
-    display: grid;
+    height:
+        82px;
 
-    place-items: center;
+    display:
+        grid;
 
-    border-radius: 22px;
+    place-items:
+        center;
+
+    border-radius:
+        22px;
 
     background:
         var(--gold);
@@ -493,9 +685,11 @@ a {
         "Montserrat",
         sans-serif;
 
-    font-size: 2rem;
+    font-size:
+        2rem;
 
-    font-weight: 800;
+    font-weight:
+        800;
 }
 
 
@@ -505,18 +699,23 @@ a {
         0
         7px;
 
-    color: #647a66;
+    color:
+        #647a66;
 
-    font-size: 0.7rem;
+    font-size:
+        0.7rem;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: 0.14em;
+    letter-spacing:
+        0.14em;
 }
 
 
 .email {
-    margin: 0;
+    margin:
+        0;
 
     font-family:
         "Montserrat",
@@ -529,9 +728,11 @@ a {
             1.55rem
         );
 
-    font-weight: 700;
+    font-weight:
+        700;
 
-    overflow-wrap: anywhere;
+    overflow-wrap:
+        anywhere;
 }
 
 
@@ -540,26 +741,35 @@ a {
    ============================== */
 
 .copy-button {
-    width: 100%;
+    width:
+        100%;
 
-    margin-top: 28px;
+    margin-top:
+        28px;
 
-    padding: 18px;
+    padding:
+        18px;
 
-    border: none;
+    border:
+        none;
 
-    border-radius: 16px;
+    border-radius:
+        16px;
 
-    color: var(--white);
+    color:
+        var(--white);
 
     background:
         var(--dark-green);
 
-    font-size: 1rem;
+    font-size:
+        1rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
     transition:
         transform 0.2s ease,
@@ -568,7 +778,8 @@ a {
 
 
 .copy-button:hover {
-    background: #344b3c;
+    background:
+        #344b3c;
 
     transform:
         translateY(-2px);
@@ -580,9 +791,11 @@ a {
    ============================== */
 
 .memo-box {
-    margin-top: 20px;
+    margin-top:
+        20px;
 
-    padding: 22px;
+    padding:
+        22px;
 
     border:
         1px solid
@@ -593,7 +806,8 @@ a {
             0.8
         );
 
-    border-radius: 18px;
+    border-radius:
+        18px;
 
     background:
         rgba(
@@ -615,25 +829,30 @@ a {
         "Montserrat",
         sans-serif;
 
-    font-size: 1.05rem;
+    font-size:
+        1.05rem;
 }
 
 
 .memo-box > p:last-child {
-    margin: 0;
+    margin:
+        0;
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 
-    line-height: 1.6;
+    line-height:
+        1.6;
 }
 
 
 /* ==============================
-   INSTRUCTION CARDS
+   INSTRUCTIONS
    ============================== */
 
 .instructions {
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(
@@ -641,16 +860,20 @@ a {
             1fr
         );
 
-    gap: 20px;
+    gap:
+        20px;
 
-    margin-top: 30px;
+    margin-top:
+        30px;
 }
 
 
 .instruction-card {
-    min-height: 235px;
+    min-height:
+        235px;
 
-    padding: 28px;
+    padding:
+        28px;
 
     border:
         1px solid
@@ -661,7 +884,8 @@ a {
             0.5
         );
 
-    border-radius: 24px;
+    border-radius:
+        24px;
 
     background:
         rgba(
@@ -679,31 +903,34 @@ a {
 
     box-shadow:
         0 15px 40px
-        rgba(
-            45,
-            65,
-            52,
-            0.08
-        );
+        rgba(45, 65, 52, 0.08);
 }
 
 
 .number {
-    width: 48px;
-    height: 48px;
+    width:
+        48px;
 
-    display: grid;
+    height:
+        48px;
 
-    place-items: center;
+    display:
+        grid;
 
-    margin-bottom: 26px;
+    place-items:
+        center;
 
-    border-radius: 50%;
+    margin-bottom:
+        26px;
+
+    border-radius:
+        50%;
 
     background:
         var(--olive);
 
-    font-weight: 800;
+    font-weight:
+        800;
 }
 
 
@@ -717,42 +944,54 @@ a {
         "Montserrat",
         sans-serif;
 
-    font-size: 1.1rem;
+    font-size:
+        1.1rem;
 }
 
 
 .instruction-card p {
-    margin: 0;
+    margin:
+        0;
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 
-    line-height: 1.65;
+    line-height:
+        1.65;
 }
 
 
 .instruction-card strong {
-    color: var(--dark-green);
+    color:
+        var(--dark-green);
 
-    overflow-wrap: anywhere;
+    overflow-wrap:
+        anywhere;
 }
 
 
 /* ==============================
-   IMPORTANT NOTICE
+   NOTICE
    ============================== */
 
 .notice {
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 16px;
+    gap:
+        16px;
 
-    margin-top: 28px;
+    margin-top:
+        28px;
 
-    padding: 20px;
+    padding:
+        20px;
 
-    border-radius: 18px;
+    border-radius:
+        18px;
 
     background:
         rgba(
@@ -771,21 +1010,29 @@ a {
 
 
 .notice-icon {
-    flex-shrink: 0;
+    flex-shrink:
+        0;
 
-    width: 42px;
-    height: 42px;
+    width:
+        42px;
 
-    display: grid;
+    height:
+        42px;
 
-    place-items: center;
+    display:
+        grid;
 
-    border-radius: 50%;
+    place-items:
+        center;
+
+    border-radius:
+        50%;
 
     background:
         var(--gold);
 
-    font-weight: 800;
+    font-weight:
+        800;
 }
 
 
@@ -795,7 +1042,8 @@ a {
         0
         0;
 
-    color: #536157;
+    color:
+        #536157;
 }
 
 
@@ -804,17 +1052,21 @@ a {
    ============================== */
 
 footer {
-    position: relative;
+    position:
+        relative;
 
-    z-index: 5;
+    z-index:
+        5;
 
     padding:
         55px
         7vw;
 
-    text-align: center;
+    text-align:
+        center;
 
-    color: var(--white);
+    color:
+        var(--white);
 
     background:
         var(--dark-green);
@@ -831,7 +1083,8 @@ footer h3 {
         "Montserrat",
         sans-serif;
 
-    letter-spacing: 0.12em;
+    letter-spacing:
+        0.12em;
 }
 
 
@@ -841,7 +1094,8 @@ footer p {
         0
         8px;
 
-    font-weight: 600;
+    font-weight:
+        600;
 }
 
 
@@ -854,7 +1108,8 @@ footer span {
             0.55
         );
 
-    font-size: 0.9rem;
+    font-size:
+        0.9rem;
 }
 
 
@@ -865,7 +1120,8 @@ footer span {
 @media (max-width: 900px) {
 
     .hero {
-        min-height: 95vh;
+        min-height:
+            95vh;
 
         background:
             linear-gradient(
@@ -878,14 +1134,29 @@ footer span {
 
 
     .church-logo {
-        top: 25px;
+        top:
+            25px;
 
-        left: 7vw;
+        left:
+            7vw;
     }
 
 
     .church-logo img {
-        width: 90px;
+        width:
+            90px;
+    }
+
+
+    .language-toggle {
+        top:
+            25px;
+
+        right:
+            7vw;
+
+        left:
+            auto;
     }
 
 
@@ -904,7 +1175,8 @@ footer span {
 
 
     .instruction-card {
-        min-height: auto;
+        min-height:
+            auto;
     }
 }
 
@@ -934,9 +1206,11 @@ footer span {
 
 
     .hero {
-        min-height: 100svh;
+        min-height:
+            100svh;
 
-        align-items: flex-start;
+        align-items:
+            flex-start;
 
         background:
             linear-gradient(
@@ -949,14 +1223,66 @@ footer span {
 
 
     .church-logo {
-        top: 20px;
+        top:
+            20px;
 
-        left: 24px;
+        left:
+            20px;
     }
 
 
     .church-logo img {
-        width: 75px;
+        width:
+            74px;
+    }
+
+
+    .language-toggle {
+        top:
+            20px;
+
+        right:
+            20px;
+
+        left:
+            auto;
+    }
+
+
+    .language-switch {
+        width:
+            112px;
+
+        height:
+            46px;
+    }
+
+
+    .language-slider {
+        top:
+            5px;
+
+        left:
+            5px;
+
+        width:
+            50px;
+
+        height:
+            34px;
+    }
+
+
+    .language-switch.french-active
+    .language-slider {
+        transform:
+            translateX(52px);
+    }
+
+
+    .language-option {
+        font-size:
+            0.65rem;
     }
 
 
@@ -968,18 +1294,38 @@ footer span {
     }
 
 
+    .eyebrow {
+        font-size:
+            0.68rem;
+
+        letter-spacing:
+            0.16em;
+    }
+
+
     .hero h1 {
         font-size:
             clamp(
-                3.4rem,
-                18vw,
+                3.1rem,
+                17vw,
                 5rem
             );
     }
 
 
+    html[lang="fr"] .hero h1 {
+        font-size:
+            clamp(
+                2.7rem,
+                14vw,
+                4.3rem
+            );
+    }
+
+
     .hero-description {
-        font-size: 1rem;
+        font-size:
+            1rem;
     }
 
 
@@ -988,43 +1334,55 @@ footer span {
             75px
             20px;
 
-        background: transparent;
+        background:
+            transparent;
     }
 
 
     .payment-card {
-        padding: 22px;
+        padding:
+            22px;
 
-        border-radius: 22px;
+        border-radius:
+            22px;
     }
 
 
     .payment-header {
-        align-items: flex-start;
+        align-items:
+            flex-start;
     }
 
 
     .interac-icon {
-        width: 62px;
-        height: 62px;
+        width:
+            62px;
 
-        border-radius: 17px;
+        height:
+            62px;
 
-        font-size: 1.5rem;
+        border-radius:
+            17px;
+
+        font-size:
+            1.5rem;
     }
 
 
     .email {
-        font-size: 0.98rem;
+        font-size:
+            0.98rem;
     }
 
 
     .instruction-card {
-        padding: 24px;
+        padding:
+            24px;
     }
 
 
     .notice {
-        align-items: flex-start;
+        align-items:
+            flex-start;
     }
 }

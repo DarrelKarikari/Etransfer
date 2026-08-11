@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -8,23 +9,38 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <meta name="theme-color" content="#aac5a8">
+    <meta
+        name="theme-color"
+        content="#aac5a8"
+    >
 
     <title>
         OQ Area Youth & PENSA Conference 2026 | E-Transfer
     </title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="styles.css">
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
 </head>
+
 
 <body>
 
@@ -34,38 +50,108 @@
 
     <section class="hero">
 
-        <!-- CHURCH OF PENTECOST LOGO -->
+        <!-- CHURCH LOGO -->
         <div class="church-logo">
+
             <img
                 src="church-logo.png"
                 alt="The Church of Pentecost Canada Inc."
             >
+
         </div>
 
+
+        <!-- LANGUAGE SLIDER -->
+        <div class="language-toggle">
+
+            <button
+                id="languageButton"
+                class="language-switch"
+                type="button"
+                aria-label="Switch between English and French"
+                aria-pressed="false"
+            >
+
+                <span class="language-option language-en">
+                    EN
+                </span>
+
+                <span class="language-option language-fr">
+                    FR
+                </span>
+
+                <span class="language-slider"></span>
+
+            </button>
+
+        </div>
+
+
+        <!-- HERO CONTENT -->
         <div class="hero-content">
 
-            <p class="eyebrow">
+            <p
+                class="eyebrow translatable"
+                data-en="OTTAWA QUEBEC AREA YOUTH & PENSA CONFERENCE"
+                data-fr="CONFÉRENCE JEUNESSE & PENSA DE LA RÉGION OTTAWA-QUÉBEC"
+            >
                 OTTAWA QUEBEC AREA YOUTH & PENSA CONFERENCE
             </p>
 
+
             <h1>
-                Conference
-                <span>2026</span>
+
+                <span
+                    class="conference-word translatable"
+                    data-en="Conference"
+                    data-fr="Conférence"
+                >
+                    Conference
+                </span>
+
+                <span class="year">
+                    2026
+                </span>
+
             </h1>
 
-            <h2>
+
+            <h2
+                class="translatable"
+                data-en="E-Transfer Information"
+                data-fr="Informations pour le virement Interac"
+            >
                 E-Transfer Information
             </h2>
 
-            <p class="hero-description">
-                Use the information below to send your
-                conference payment securely through
-                Interac e-Transfer.
+
+            <p
+                class="hero-description translatable"
+                data-en="Use the information below to send your conference payment securely through Interac e-Transfer."
+                data-fr="Utilisez les renseignements ci-dessous pour envoyer votre paiement de conférence en toute sécurité par virement Interac."
+            >
+                Use the information below to send your conference payment
+                securely through Interac e-Transfer.
             </p>
 
-            <a href="#payment" class="primary-button">
-                View Payment Details
-                <span>↓</span>
+
+            <a
+                href="#payment"
+                class="primary-button"
+            >
+
+                <span
+                    class="translatable"
+                    data-en="View Payment Details"
+                    data-fr="Voir les détails du paiement"
+                >
+                    View Payment Details
+                </span>
+
+                <span>
+                    ↓
+                </span>
+
             </a>
 
         </div>
@@ -77,23 +163,52 @@
          PAYMENT SECTION
     ========================== -->
 
-    <main id="payment" class="payment-section">
+    <main
+        id="payment"
+        class="payment-section"
+    >
 
         <div class="section-header">
 
-            <p class="section-tag">
+            <p
+                class="section-tag translatable"
+                data-en="PAYMENT DETAILS"
+                data-fr="DÉTAILS DU PAIEMENT"
+            >
                 PAYMENT DETAILS
             </p>
 
+
             <h2>
-                Send your Interac
+
+                <span
+                    class="translatable"
+                    data-en="Send your Interac"
+                    data-fr="Envoyez votre"
+                >
+                    Send your Interac
+                </span>
+
                 <br>
-                e-Transfer
+
+                <span
+                    class="translatable"
+                    data-en="e-Transfer"
+                    data-fr="virement Interac"
+                >
+                    e-Transfer
+                </span>
+
             </h2>
 
-            <p>
-                Please verify the recipient email address
-                before sending your conference payment.
+
+            <p
+                class="translatable"
+                data-en="Please verify the recipient email address before sending your conference payment."
+                data-fr="Veuillez vérifier l'adresse courriel du destinataire avant d'envoyer votre paiement pour la conférence."
+            >
+                Please verify the recipient email address before sending your
+                conference payment.
             </p>
 
         </div>
@@ -109,11 +224,17 @@
                     $
                 </div>
 
+
                 <div>
 
-                    <p class="label">
+                    <p
+                        class="label translatable"
+                        data-en="E-TRANSFER EMAIL"
+                        data-fr="COURRIEL POUR LE VIREMENT"
+                    >
                         E-TRANSFER EMAIL
                     </p>
+
 
                     <p
                         class="email"
@@ -132,9 +253,15 @@
                 id="copyButton"
                 type="button"
             >
-                <span id="copyText">
+
+                <span
+                    id="copyText"
+                    data-en="Copy Email Address"
+                    data-fr="Copier l'adresse courriel"
+                >
                     Copy Email Address
                 </span>
+
             </button>
 
 
@@ -142,17 +269,31 @@
 
             <div class="memo-box">
 
-                <p class="label">
+                <p
+                    class="label translatable"
+                    data-en="SUGGESTED MESSAGE / MEMO"
+                    data-fr="MESSAGE / NOTE SUGGÉRÉ"
+                >
                     SUGGESTED MESSAGE / MEMO
                 </p>
 
-                <h3>
+
+                <h3
+                    class="translatable"
+                    data-en="Youth & PENSA Conference 2026"
+                    data-fr="Conférence Jeunesse & PENSA 2026"
+                >
                     Youth & PENSA Conference 2026
                 </h3>
 
-                <p>
-                    Include your full name in the message
-                    so your payment can be identified.
+
+                <p
+                    class="translatable"
+                    data-en="Include your full name in the message so your payment can be identified."
+                    data-fr="Indiquez votre nom complet dans le message afin que votre paiement puisse être identifié."
+                >
+                    Include your full name in the message so your payment can be
+                    identified.
                 </p>
 
             </div>
@@ -172,13 +313,22 @@
                     01
                 </div>
 
-                <h3>
+
+                <h3
+                    class="translatable"
+                    data-en="Open your banking app"
+                    data-fr="Ouvrez votre application bancaire"
+                >
                     Open your banking app
                 </h3>
 
-                <p>
-                    Select Interac e-Transfer from your
-                    bank's send-money options.
+
+                <p
+                    class="translatable"
+                    data-en="Select Interac e-Transfer from your bank's send-money options."
+                    data-fr="Sélectionnez Virement Interac dans les options d'envoi d'argent de votre banque."
+                >
+                    Select Interac e-Transfer from your bank's send-money options.
                 </p>
 
             </article>
@@ -190,15 +340,32 @@
                     02
                 </div>
 
-                <h3>
+
+                <h3
+                    class="translatable"
+                    data-en="Enter the email"
+                    data-fr="Entrez l'adresse courriel"
+                >
                     Enter the email
                 </h3>
 
+
                 <p>
-                    Send your transfer to
+
+                    <span
+                        class="translatable"
+                        data-en="Send your transfer to"
+                        data-fr="Envoyez votre virement à"
+                    >
+                        Send your transfer to
+                    </span>
+
+                    <br>
+
                     <strong>
                         oqaareadeacon@pentecost.ca
                     </strong>
+
                 </p>
 
             </article>
@@ -210,16 +377,42 @@
                     03
                 </div>
 
-                <h3>
+
+                <h3
+                    class="translatable"
+                    data-en="Add your name"
+                    data-fr="Ajoutez votre nom"
+                >
                     Add your name
                 </h3>
 
+
                 <p>
-                    Include your full name and
-                    <strong>
+
+                    <span
+                        class="translatable"
+                        data-en="Include your full name and"
+                        data-fr="Indiquez votre nom complet et"
+                    >
+                        Include your full name and
+                    </span>
+
+                    <strong
+                        class="translatable"
+                        data-en="Youth & PENSA Conference 2026"
+                        data-fr="Conférence Jeunesse & PENSA 2026"
+                    >
                         Youth & PENSA Conference 2026
                     </strong>
-                    in the message field.
+
+                    <span
+                        class="translatable"
+                        data-en="in the message field."
+                        data-fr="dans le champ du message."
+                    >
+                        in the message field.
+                    </span>
+
                 </p>
 
             </article>
@@ -227,7 +420,7 @@
         </div>
 
 
-        <!-- NOTICE -->
+        <!-- IMPORTANT NOTICE -->
 
         <div class="notice">
 
@@ -235,15 +428,25 @@
                 !
             </div>
 
+
             <div>
 
-                <strong>
+                <strong
+                    class="translatable"
+                    data-en="Important"
+                    data-fr="Important"
+                >
                     Important
                 </strong>
 
-                <p>
-                    Always confirm the recipient email
-                    before submitting your transfer.
+
+                <p
+                    class="translatable"
+                    data-en="Always confirm the recipient email before submitting your transfer."
+                    data-fr="Confirmez toujours l'adresse courriel du destinataire avant d'envoyer votre virement."
+                >
+                    Always confirm the recipient email before submitting your
+                    transfer.
                 </p>
 
             </div>
@@ -263,11 +466,21 @@
             YOUTH & PENSA
         </h3>
 
-        <p>
+
+        <p
+            class="translatable"
+            data-en="Conference 2026"
+            data-fr="Conférence 2026"
+        >
             Conference 2026
         </p>
 
-        <span>
+
+        <span
+            class="translatable"
+            data-en="Church of Pentecost"
+            data-fr="Église de Pentecôte"
+        >
             Church of Pentecost
         </span>
 
@@ -277,4 +490,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
