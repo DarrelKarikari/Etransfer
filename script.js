@@ -1,5 +1,5 @@
 /* ==============================
-   GET ELEMENTS
+   ELEMENTS
    ============================== */
 
 const copyButton =
@@ -11,8 +11,8 @@ const copyText =
 const emailElement =
     document.getElementById("etransferEmail");
 
-const languageButton =
-    document.getElementById("languageButton");
+const languageCheckbox =
+    document.getElementById("languageCheckbox");
 
 const translatableElements =
     document.querySelectorAll(".translatable");
@@ -31,78 +31,39 @@ let currentLanguage =
 
 function switchLanguage(language) {
 
-    currentLanguage =
-        language;
+    currentLanguage = language;
+
+    document.documentElement.lang = language;
 
 
-    document.documentElement.lang =
-        language;
+    /* Translate all elements */
 
+    translatableElements.forEach((element) => {
 
-    /*
-       Translate text
-    */
+        const translation =
+            element.dataset[language];
 
-    translatableElements.forEach(
-        (element) => {
-
-            const translatedText =
-                element.dataset[language];
-
-            if (translatedText) {
-
-                element.textContent =
-                    translatedText;
-
-            }
-
+        if (translation) {
+            element.textContent = translation;
         }
-    );
+
+    });
 
 
-    /*
-       FRENCH:
-       slide from LEFT -> RIGHT
-    */
+    /* Move language switch */
+
+    languageCheckbox.checked =
+        language === "fr";
+
+
+    /* Change page title */
 
     if (language === "fr") {
-
-        languageButton.classList.add(
-            "french-active"
-        );
-
-        languageButton.setAttribute(
-            "aria-pressed",
-            "true"
-        );
-
-        copyText.textContent =
-            copyText.dataset.fr;
 
         document.title =
             "Conférence Jeunesse & PENSA OQ 2026 | Virement Interac";
 
-    }
-
-
-    /*
-       ENGLISH:
-       slide from RIGHT -> LEFT
-    */
-
-    else {
-
-        languageButton.classList.remove(
-            "french-active"
-        );
-
-        languageButton.setAttribute(
-            "aria-pressed",
-            "false"
-        );
-
-        copyText.textContent =
-            copyText.dataset.en;
+    } else {
 
         document.title =
             "OQ Area Youth & PENSA Conference 2026 | E-Transfer";
@@ -110,47 +71,48 @@ function switchLanguage(language) {
     }
 
 
-    /*
-       Remember selection
-    */
+    /* Reset copy button language */
+
+    copyText.textContent =
+        language === "fr"
+            ? copyText.dataset.fr
+            : copyText.dataset.en;
+
+
+    /* Remember preference */
 
     localStorage.setItem(
         "preferredLanguage",
         language
     );
-
 }
 
 
 /* ==============================
-   CLICK TO SWITCH
+   LANGUAGE TOGGLE
    ============================== */
 
-languageButton.addEventListener(
-    "click",
+languageCheckbox.addEventListener(
+    "change",
     () => {
 
-        const nextLanguage =
-            currentLanguage === "en"
-                ? "fr"
-                : "en";
+        if (languageCheckbox.checked) {
 
+            switchLanguage("fr");
 
-        switchLanguage(
-            nextLanguage
-        );
+        } else {
+
+            switchLanguage("en");
+
+        }
 
     }
 );
 
 
-/* ==============================
-   RESTORE LANGUAGE
-   ============================== */
+/* Load saved language */
 
-switchLanguage(
-    currentLanguage
-);
+switchLanguage(currentLanguage);
 
 
 /* ==============================
@@ -171,7 +133,7 @@ copyButton.addEventListener(
             if (currentLanguage === "fr") {
 
                 copyText.textContent =
-                    "✓ Adresse courriel copiée!";
+                    "✓ Adresse courriel copiée !";
 
             } else {
 
@@ -181,52 +143,31 @@ copyButton.addEventListener(
             }
 
 
-            setTimeout(
-                () => {
+            setTimeout(() => {
 
-                    if (currentLanguage === "fr") {
+                copyText.textContent =
+                    currentLanguage === "fr"
+                        ? copyText.dataset.fr
+                        : copyText.dataset.en;
 
-                        copyText.textContent =
-                            copyText.dataset.fr;
-
-                    } else {
-
-                        copyText.textContent =
-                            copyText.dataset.en;
-
-                    }
-
-                },
-
-                2000
-            );
+            }, 2000);
 
         }
 
         catch (error) {
 
             const temporaryInput =
-                document.createElement(
-                    "input"
-                );
+                document.createElement("input");
 
-
-            temporaryInput.value =
-                email;
-
+            temporaryInput.value = email;
 
             document.body.appendChild(
                 temporaryInput
             );
 
-
             temporaryInput.select();
 
-
-            document.execCommand(
-                "copy"
-            );
-
+            document.execCommand("copy");
 
             temporaryInput.remove();
 
@@ -234,7 +175,7 @@ copyButton.addEventListener(
             if (currentLanguage === "fr") {
 
                 copyText.textContent =
-                    "✓ Adresse courriel copiée!";
+                    "✓ Adresse courriel copiée !";
 
             } else {
 
@@ -244,27 +185,14 @@ copyButton.addEventListener(
             }
 
 
-            setTimeout(
-                () => {
+            setTimeout(() => {
 
-                    if (currentLanguage === "fr") {
+                copyText.textContent =
+                    currentLanguage === "fr"
+                        ? copyText.dataset.fr
+                        : copyText.dataset.en;
 
-                        copyText.textContent =
-                            copyText.dataset.fr;
-
-                    } else {
-
-                        copyText.textContent =
-                            copyText.dataset.en;
-
-                    }
-
-                },
-
-                2000
-            );
-
+            }, 2000);
         }
-
     }
 );

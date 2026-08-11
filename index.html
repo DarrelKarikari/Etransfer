@@ -9,36 +9,22 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <meta
-        name="theme-color"
-        content="#aac5a8"
-    >
+    <meta name="theme-color" content="#aac5a8">
 
     <title>
         OQ Area Youth & PENSA Conference 2026 | E-Transfer
     </title>
 
     <!-- Google Fonts -->
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
         rel="stylesheet"
     >
 
-    <link
-        rel="stylesheet"
-        href="styles.css"
-    >
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 
@@ -52,37 +38,37 @@
 
         <!-- CHURCH LOGO -->
         <div class="church-logo">
-
             <img
                 src="church-logo.png"
                 alt="The Church of Pentecost Canada Inc."
             >
-
         </div>
 
 
-        <!-- LANGUAGE SLIDER -->
+        <!-- LANGUAGE TOGGLE -->
         <div class="language-toggle">
 
-            <button
-                id="languageButton"
-                class="language-switch"
-                type="button"
-                aria-label="Switch between English and French"
-                aria-pressed="false"
-            >
+            <span class="language-label">
+                EN
+            </span>
 
-                <span class="language-option language-en">
-                    EN
+            <label class="language-switch">
+
+                <input
+                    type="checkbox"
+                    id="languageCheckbox"
+                    aria-label="Switch between English and French"
+                >
+
+                <span class="language-track">
+                    <span class="language-thumb"></span>
                 </span>
 
-                <span class="language-option language-fr">
-                    FR
-                </span>
+            </label>
 
-                <span class="language-slider"></span>
-
-            </button>
+            <span class="language-label">
+                FR
+            </span>
 
         </div>
 
@@ -135,10 +121,7 @@
             </p>
 
 
-            <a
-                href="#payment"
-                class="primary-button"
-            >
+            <a href="#payment" class="primary-button">
 
                 <span
                     class="translatable"
@@ -148,9 +131,7 @@
                     View Payment Details
                 </span>
 
-                <span>
-                    ↓
-                </span>
+                <span>↓</span>
 
             </a>
 
@@ -163,10 +144,7 @@
          PAYMENT SECTION
     ========================== -->
 
-    <main
-        id="payment"
-        class="payment-section"
-    >
+    <main id="payment" class="payment-section">
 
         <div class="section-header">
 
@@ -214,18 +192,26 @@
         </div>
 
 
-        <!-- PAYMENT CARD -->
+        <!-- =========================
+             PAYMENT CARD
+        ========================== -->
 
         <div class="payment-card">
 
             <div class="payment-header">
 
+                <!-- INTERAC LOGO -->
                 <div class="interac-icon">
-                    $
+
+                    <img
+                        src="interac-logo.png"
+                        alt="Interac"
+                    >
+
                 </div>
 
 
-                <div>
+                <div class="payment-email-content">
 
                     <p
                         class="label translatable"
@@ -248,6 +234,7 @@
             </div>
 
 
+            <!-- COPY BUTTON -->
             <button
                 class="copy-button"
                 id="copyButton"
@@ -266,7 +253,6 @@
 
 
             <!-- MEMO -->
-
             <div class="memo-box">
 
                 <p
@@ -292,8 +278,8 @@
                     data-en="Include your full name in the message so your payment can be identified."
                     data-fr="Indiquez votre nom complet dans le message afin que votre paiement puisse être identifié."
                 >
-                    Include your full name in the message so your payment can be
-                    identified.
+                    Include your full name in the message so your payment
+                    can be identified.
                 </p>
 
             </div>
@@ -307,6 +293,7 @@
 
         <div class="instructions">
 
+            <!-- STEP 1 -->
             <article class="instruction-card">
 
                 <div class="number">
@@ -328,12 +315,14 @@
                     data-en="Select Interac e-Transfer from your bank's send-money options."
                     data-fr="Sélectionnez Virement Interac dans les options d'envoi d'argent de votre banque."
                 >
-                    Select Interac e-Transfer from your bank's send-money options.
+                    Select Interac e-Transfer from your bank's send-money
+                    options.
                 </p>
 
             </article>
 
 
+            <!-- STEP 2 -->
             <article class="instruction-card">
 
                 <div class="number">
@@ -371,6 +360,7 @@
             </article>
 
 
+            <!-- STEP 3 -->
             <article class="instruction-card">
 
                 <div class="number">
@@ -420,7 +410,9 @@
         </div>
 
 
-        <!-- IMPORTANT NOTICE -->
+        <!-- =========================
+             IMPORTANT NOTICE
+        ========================== -->
 
         <div class="notice">
 
@@ -445,8 +437,8 @@
                     data-en="Always confirm the recipient email before submitting your transfer."
                     data-fr="Confirmez toujours l'adresse courriel du destinataire avant d'envoyer votre virement."
                 >
-                    Always confirm the recipient email before submitting your
-                    transfer.
+                    Always confirm the recipient email before submitting
+                    your transfer.
                 </p>
 
             </div>
@@ -490,5 +482,4 @@
     <script src="script.js"></script>
 
 </body>
-
 </html>
