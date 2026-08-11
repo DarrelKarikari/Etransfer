@@ -31,39 +31,51 @@ let currentLanguage =
 
 function switchLanguage(language) {
 
-    currentLanguage = language;
+    currentLanguage =
+        language;
 
-    document.documentElement.lang = language;
+
+    /* Update page language */
+
+    document.documentElement.lang =
+        language;
 
 
-    /* Translate all elements */
+    /* Translate page */
 
-    translatableElements.forEach((element) => {
+    translatableElements.forEach(
+        (element) => {
 
-        const translation =
-            element.dataset[language];
+            const translation =
+                element.dataset[language];
 
-        if (translation) {
-            element.textContent = translation;
+            if (translation) {
+
+                element.textContent =
+                    translation;
+
+            }
+
         }
+    );
 
-    });
 
-
-    /* Move language switch */
+    /* Move language slider */
 
     languageCheckbox.checked =
         language === "fr";
 
 
-    /* Change page title */
+    /* Update title */
 
     if (language === "fr") {
 
         document.title =
             "Conférence Jeunesse & PENSA OQ 2026 | Virement Interac";
 
-    } else {
+    }
+
+    else {
 
         document.title =
             "OQ Area Youth & PENSA Conference 2026 | E-Transfer";
@@ -71,7 +83,7 @@ function switchLanguage(language) {
     }
 
 
-    /* Reset copy button language */
+    /* Reset copy button */
 
     copyText.textContent =
         language === "fr"
@@ -79,17 +91,18 @@ function switchLanguage(language) {
             : copyText.dataset.en;
 
 
-    /* Remember preference */
+    /* Remember language */
 
     localStorage.setItem(
         "preferredLanguage",
         language
     );
+
 }
 
 
 /* ==============================
-   LANGUAGE TOGGLE
+   LANGUAGE SWITCH
    ============================== */
 
 languageCheckbox.addEventListener(
@@ -100,7 +113,9 @@ languageCheckbox.addEventListener(
 
             switchLanguage("fr");
 
-        } else {
+        }
+
+        else {
 
             switchLanguage("en");
 
@@ -112,7 +127,9 @@ languageCheckbox.addEventListener(
 
 /* Load saved language */
 
-switchLanguage(currentLanguage);
+switchLanguage(
+    currentLanguage
+);
 
 
 /* ==============================
@@ -135,7 +152,9 @@ copyButton.addEventListener(
                 copyText.textContent =
                     "✓ Adresse courriel copiée !";
 
-            } else {
+            }
+
+            else {
 
                 copyText.textContent =
                     "✓ Email Copied!";
@@ -143,31 +162,45 @@ copyButton.addEventListener(
             }
 
 
-            setTimeout(() => {
+            setTimeout(
+                () => {
 
-                copyText.textContent =
-                    currentLanguage === "fr"
-                        ? copyText.dataset.fr
-                        : copyText.dataset.en;
+                    copyText.textContent =
+                        currentLanguage === "fr"
+                            ? copyText.dataset.fr
+                            : copyText.dataset.en;
 
-            }, 2000);
+                },
+
+                2000
+            );
 
         }
 
         catch (error) {
 
             const temporaryInput =
-                document.createElement("input");
+                document.createElement(
+                    "input"
+                );
 
-            temporaryInput.value = email;
+
+            temporaryInput.value =
+                email;
+
 
             document.body.appendChild(
                 temporaryInput
             );
 
+
             temporaryInput.select();
 
-            document.execCommand("copy");
+
+            document.execCommand(
+                "copy"
+            );
+
 
             temporaryInput.remove();
 
@@ -177,7 +210,9 @@ copyButton.addEventListener(
                 copyText.textContent =
                     "✓ Adresse courriel copiée !";
 
-            } else {
+            }
+
+            else {
 
                 copyText.textContent =
                     "✓ Email Copied!";
@@ -185,14 +220,20 @@ copyButton.addEventListener(
             }
 
 
-            setTimeout(() => {
+            setTimeout(
+                () => {
 
-                copyText.textContent =
-                    currentLanguage === "fr"
-                        ? copyText.dataset.fr
-                        : copyText.dataset.en;
+                    copyText.textContent =
+                        currentLanguage === "fr"
+                            ? copyText.dataset.fr
+                            : copyText.dataset.en;
 
-            }, 2000);
+                },
+
+                2000
+            );
+
         }
+
     }
 );
